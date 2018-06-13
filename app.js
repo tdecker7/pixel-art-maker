@@ -13,8 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
             changeColor(event.target, selectedColor);
         }
     });
+    canvas.addEventListener('mouseenter', () => {
+        canvas.addEventListener('mousedown', event => {
+            makePixelsListen(canvas);
+        })
+    })
+    canvas.addEventListener('mousedown', (event) => {
+        if (isPixel(event.target)) {
+            changeColor(event.target, selectedColor);
+        }
+    })
     palette.addEventListener('click', (event) => {
-        console.log(event.target);
         if (isPalettePixel(event.target)) {
             selectedColor = event.target.style.backgroundColor;
             updateSelectedColor(selectedColor);
@@ -56,7 +65,6 @@ function handleCanvasClick(event, selectedColor) {
     }
 }
 function isPixel(target) {
-    console.log(target);
     if (target.className.match(/pixel/g)) {
         return true;
     }
