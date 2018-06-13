@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isPixel(event.target)) {
             changeColor(event.target, selectedColor);
         }
-        
     });
+    palette.addEventListener('click', (event) => {
+        console.log(event.target);
+        if (isPalettePixel(event.target)) {
+            selectedColor = event.target.style.backgroundColor;
+        }
+    })
 })
 
 function buildPaintCanvas(rows, columns, target) {
@@ -36,13 +41,24 @@ function buildColorPalette(colors, target) {
         target.appendChild(palettePixel);
     }
 }
+function handleCanvasClick(event, selectedColor) {
+    if (isPixel(event.target)) {
+        event.target.style.backgroundColor = selectedColor;
+    }
+}
 function isPixel(target) {
+    console.log(target);
     if (target.className.match(/pixel/g)) {
         return true;
     }
     return false;
 }
-
+function isPalettePixel(target) {
+    if (target.className.match(/palette/g)) {
+        return true;
+    }
+    return false;
+}
 function changeColor(target, color) {
     target.style.backgroundColor = color;
 }
