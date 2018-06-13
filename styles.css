@@ -3,15 +3,22 @@ div#top {
 }
 .canvas {
     display: inline-block;
+    background-color: grey;
+    padding: 15px;
+    border-radius: 5%;
 }
 .palette {
     float: right;
+    background-color: grey;
+    padding: 10px 0 10px 0;
+    border-radius: 5%;
 }
 .row {
     margin: 0 auto;
 }
 div[class^='pixel'] {
     /* display: inline-block; */
+    background-color: white;
     height: 10px;
     width: 10px;
     border: 1px solid black;

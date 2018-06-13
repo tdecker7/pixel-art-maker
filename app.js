@@ -37,7 +37,7 @@ function buildPaintCanvas(rows, columns, target) {
 function buildColorPalette(colors, target) {
     for (var color in colors) {
         var palettePixel = document.createElement('div');
-        palettePixel.className = 'palette-pixel';
+        palettePixel.classList.add('palette-pixel', 'z-depth-3');
         palettePixel.style.backgroundColor = colors[color];
         target.appendChild(palettePixel);
     }
