@@ -1,0 +1,10 @@
+.row {
+    margin: 0 auto;
+}
+div[class^='pixel'] {
+    /* display: inline-block; */
+    height: 10px;
+    width: 10px;
+    border: 1px solid black;
+    float: left;
+}
