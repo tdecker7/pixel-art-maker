@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(event.target);
         if (isPalettePixel(event.target)) {
             selectedColor = event.target.style.backgroundColor;
+            updateSelectedColor(selectedColor);
         }
     })
 })
@@ -40,6 +41,14 @@ function buildColorPalette(colors, target) {
         palettePixel.style.backgroundColor = colors[color];
         target.appendChild(palettePixel);
     }
+    var currentColor = document.createElement('div');
+    currentColor.id = 'selected';
+    currentColor.style.backgroundColor = 'black';
+
+    var helperText = document.createElement('small');
+    helperText.innerText = `Selected Color`;
+    target.appendChild(currentColor);
+    target.appendChild(helperText);
 }
 function handleCanvasClick(event, selectedColor) {
     if (isPixel(event.target)) {
@@ -61,4 +70,8 @@ function isPalettePixel(target) {
 }
 function changeColor(target, color) {
     target.style.backgroundColor = color;
+}
+function updateSelectedColor(color) {
+    var previous = document.getElementById('selected');
+    previous.style.backgroundColor = color;
 }

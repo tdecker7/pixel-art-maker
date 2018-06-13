@@ -22,4 +22,13 @@ div[class^='palette-pixel'] {
     width: 30px;
     border: 1px solid black;
     border-radius: 50%;
+    margin: 0 auto;
+}
+div#selected {
+    margin: 25px auto 0;
+    height: 30px;
+    width: 60px;
+}
+div#selected > .small {
+    padding: 10px;
 }
