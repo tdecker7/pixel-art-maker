@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isPalettePixel(event.target)) {
             selectedColor = event.target.style.backgroundColor;
             updateSelectedColor(selectedColor);
+        } else {
+            return;
         }
     })
 })
